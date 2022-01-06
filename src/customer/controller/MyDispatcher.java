@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import customer.controller.notice.NoticeController;
+
 public class MyDispatcher extends HttpServlet{
 	
 	@Override
@@ -22,7 +24,12 @@ public class MyDispatcher extends HttpServlet{
 		System.out.println("conPath: "+conPath);
 		System.out.println("com: "+com);
 		
+		Controller ctr = null;
 		try {
+			if(com.equals("/customer/notice.do")) {
+				ctr = new NoticeController();
+			}
+			ctr.execute(request, response);
 		} catch (Exception e) {
 			
 		}
