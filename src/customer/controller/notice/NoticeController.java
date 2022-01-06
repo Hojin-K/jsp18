@@ -18,6 +18,7 @@ public class NoticeController implements Controller{
 		NoticeDao dao=new NoticeDao();
 		List<Notice> list= dao.noticeSelAll();
 		
+		System.out.println("=====< NoticeController OUT >=====");
 		request.setAttribute("list", list); 
 		request.getRequestDispatcher("notice.jsp").forward(request, response);
 	}
