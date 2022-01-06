@@ -24,6 +24,7 @@ public class MyDispatcher extends HttpServlet{
 		System.out.println("conPath: "+conPath);
 		System.out.println("com: "+com);
 		
+		//Controller 수정
 		Controller ctr = null;
 		try {
 			if(com.equals("/customer/notice.do")) {
