@@ -9,15 +9,15 @@ import customer.vo.Notice;
 
 public class NoticeDao {
 	
-	public List<Notice> noticeSelAll(String field,String query) throws Exception{
+	public List<Notice> noticeSelAll() throws Exception{
 		Connection con=DBCon.getConnection();
 		
-		String sql="select * from notices where "+field+" like ? order by to_number(seq) desc";
+		String sql="select * from notices order by to_number(seq) desc";
 		
 		PreparedStatement pstmt=con.prepareStatement(sql);
-		pstmt.setString(1, "%"+query+"%");
 		
 		ResultSet rs=pstmt.executeQuery();
+		
 		List<Notice> list=new ArrayList<Notice>();
 		
 		while (rs.next()) {
